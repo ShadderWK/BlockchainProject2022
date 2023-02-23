@@ -1,7 +1,27 @@
+@font-face {
+    font-family: 'kanitblack';
+    src: url('./fonts/kanit-black-webfont.woff2') format('woff2'),
+         url('./fonts/kanit-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+  
+  @font-face {
+    font-family: 'kanitlight';
+    src: url('./fonts/kanit-light-webfont.woff2') format('woff2'),
+         url('./fonts/kanit-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+
+
 body {
+    color: #2a1f1f;
     background-color:#ffdfd3;
+    font-family: 'Raleway','Source Sans Pro', 'Arial';
     padding: 2em;
-    font-family: 'PT Sans';
 }
 
 .container {
@@ -23,10 +43,10 @@ input {
 }
 
 button {
-    margin: 2em 0;
-    padding: 1em 4em;
-    display:block;
-    font-size: medium;
+    font-family: 'kanitlight';
+    padding: 0em 2em;
+    display: block;
+    font-size: large;
 }
 #result {
     padding:1em;
@@ -34,3 +54,45 @@ button {
     margin: 1em 0;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ffcaaf;
+    font-size: larger;
+    text-align: center;
+    color: black;
+    }
+
+  td,
+  th {
+    border: 1px solid #f5f5f5;
+    text-align: center;
+    padding: 10px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.btn {
+    background-color: #c43838;
+    color: white;
+    font-size: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 3px;
+    justify-self: center;
+  }
+
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    
+  }
