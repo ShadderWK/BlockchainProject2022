@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 10px;
+      }
+
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 0px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+        align-items: center;
+        
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3rem;
+        color: #333;
+      }
+
+      .button {
+        display: flex;
+        justify-content: center;
+      }
+
+      .btn {
+        background-color: #ff3d3d;
+        color: white;
+        font-size: 10px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        background-color: rgb(241, 71, 71);
+      }
+
+      td,
+      th {
+        border: 1px solid #f5f5f5;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #ffffff;
+      }
+    </style>
+    <title>Gotoubun No Hanayome Shop</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <!-- <script src="./node_modules/web3/dist/web3.min.js">
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+
+        <h1 style="text-align: center">ร้านค้าตัวละคร Gotoubun No Hanayome</h1>
+        <h3 style="text-align: center">โปรดเลือกตัวละครที่ท่านต้องการ</h3>
+        <div class="grid-container">
+
+        <!--character 1-->
+        <div class="grid-item">
+          <label class="label1"> Nakano Itsuki (ทั่วไป)</label>
+          <img
+            src="Image/Itsuki.jpg"
+            width="200px"
+            alt="
+                Nakano Itsuki"
+          />
+          <div class="button">
+            <button
+              class="btn"
+              id="button"
+              onclick="btnChoose('Nakano Itsuki',120000000000000)"
+            >
+              BUY
+            </button>
+          </div>
+          <label>0.00012 ETH</label>
+        </div>
+
+        <!--character 2-->
+        <div class="grid-item">
+          <label class="label1"> Nakano Yotsuba (ทั่วไป)</label>
+          <img src="Image/Yotsuba.jpg" width="200px" alt="Nakano Yotsuba" />
+          <div class="button">
+            <button
+              class="btn"
+              id="button"
+              onclick="btnChoose('Nakano Yotsuba',30000000000000)"
+            >
+              BUY
+            </button>
+          </div>
+          <label>0.00003 ETH</label>
+        </div>
+
+        <!--character 3-->
+        <div class="grid-item">
+          <label class="label1"> Nakano Miku (ทั่วไป)</label>
+          <img src="Image/Miku.jpg" width="200px" alt="Nakano Miku" />
+          <div class="button">
+            <button
+              class="btn"
+              id="button"
+              onclick="btnChoose('Nakano Miku',40000000000000)"
+            >
+              BUY
+            </button>
+          </div>
+          <label>0.00004 ETH</label>
+        </div>
+
+        <!--character 4-->
+        <div class="grid-item">
+          <label class="label1"> Nakano Nino (ทั่วไป)</label>
+          <img src="Image/Nino.jpg" width="200px" alt="Nakano Nino" />
+          <div class="button">
+            <button
+              class="btn"
+              id="button"
+              onclick="btnChoose('Nakano Nino',50000000000000)"
+            >
+              BUY
+            </button>
+          </div>
+          <label>0.00005 ETH</label>
+        </div>
+
+        <!--character 5-->
+        <div class="grid-item">
+          <label class="label1"> Nakano Ichika (ทั่วไป)</label>
+          <img src="Image/Ichika.jpg" width="220px" alt="Nakano Ichika" />
+          <div class="button">
+            <button
+              class="btn"
+              id="button"
+              onclick="btnChoose('Nakano Ichika',60000000000000)"
+            >
+              BUY
+            </button>
+          </div>
+          <label>0.00006 ETH</label>
+        </div>
+
+        <!--character 6-->
+        <div class="grid-item">
+          <label class="label1"> Mystery Itsuki (แรร์)</label>
+          <img src="Image/Itsuki_dark.jpg" width="290px" alt="Mystery Itsuki" />
+          <div class="button">
+            <button
+              class="btn"
+              id="button"
+              onclick="btnChoose('Mystery Itsuki',70000000000000)"
+            >
+              BUY
+            </button>
+          </div>
+          <label>0.001 ETH</label>
+        </div>
+        <div class="container">
+            <h3 style="text-align: center">เจ้าของตัวละครในปัจจุบัน</h3>
+      <table>
+        <tr>
+          <th>เวลา</th>
+          <th>ตัวละคร</th>
+          <th>เจ้าของ</th>
+        </tr>
+        <tr>
+          <td id="time1"></td>
+          <td id="character1"></td>
+          <td id="owner1"></td>
+        </tr>
+        <tr>
+          <td id="time2"></td>
+          <td id="character2"></td>
+          <td id="owner2"></td>
+        </tr>
+        <tr>
+          <td id="time3"></td>
+          <td id="character3"></td>
+          <td id="owner3"></td>
+        </tr>
+        <tr>
+          <td id="time4"></td>
+          <td id="character4"></td>
+          <td id="owner4"></td>
+        </tr>
+        <tr>
+          <td id="time5"></td>
+          <td id="character5"></td>
+          <td id="owner5"></td>
+        </tr>
+        <tr>
+          <td id="time6"></td>
+          <td id="character6"></td>
+          <td id="owner6"></td>
+        </tr>
+      </table>
+    </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    <script>
+      async function loadWeb3() {
+        if (window.ethereum) {
+          window.web3 = new Web3(window.ethereum);
+          window.ethereum.enable();
+        }
+      }
+
+      let currentAccount = null;
+      window.ethereum
+        .request({ method: "eth_accounts" })
+        .then(handleAccountsChanged)
+        .catch((err) => {
+          console.error(err);
+        });
+
+      window.ethereum.on("accountsChanged", handleAccountsChanged);
+
+      function handleAccountsChanged(accounts) {
+        if (accounts.length === 0) {
+          // MetaMask is locked or the user has not connected any accounts
+          console.log("Please connect to MetaMask.");
+        } else if (accounts[0] !== currentAccount) {
+          currentAccount = accounts[0];
+        }
+      }
+
+      let abi = 
+      [
+	{
+		anonymous: false,
+		inputs: [
+			{
+				indexed: false,
+				internalType: "address",
+				name: "owner",
+				type: "address"
+			},
+			{
+				indexed: false,
+				internalType: "string",
+				name: "character",
+				type: "string"
+			}
+		],
+		name: "Add",
+		type: "event"
+	},
+	{
+		inputs: [
+			{
+				internalType: "string",
+				name: "name",
+				type: "string"
+			}
+		],
+		name: "buy",
+		outputs: [],
+		stateMutability: "payable",
+		type: "function"
+	}
+      ];
+
+      async function loadContract() {
+        return await new window.web3.eth.Contract(
+          abi,
+          "0xd66233c69153470F4B90CA9766F4cFe49e461978"
+        );
+      }
+
+      async function load() {
+        await loadWeb3();
+        window.contract = await loadContract();
+        updateStatus("Ready!");
+      }
+
+      function updateStatus(status) {
+        const statusEl = document.getElementById("status");
+        statusEl.innerHTML = status;
+        console.log(status);
+      }
+
+      var i = 0;
+
+      function btnChoose(name, eth) {
+        console.log(currentAccount);
+        window.contract.methods
+          .buy(name)
+          .send({ from: currentAccount, value: eth }, function (error, result) {
+            $("#result").html(result);
+          });
+        window.contract.once("Add", {}, function (error, event) {
+          if (!error) {
+            console.log(event);
+            var h = new Date().getHours();
+            var m = new Date().getMinutes();
+            $("#result").html(
+              "Name:" +
+                event.returnValues.character +
+                "<br/>time:" +
+                h +
+                ":" +
+                m +
+                "<br/>owner:" +
+                event.returnValues.owner
+            );
+            i++;
+            $("#time" + i).html(h + ":" + m);
+            $("#character" + i).html(event.returnValues.character);
+            $("#owner" + i).html(event.returnValues.owner);
+          }
+        });
+
+        window.contract.once("RegistrationError", {}, function (error, event) {
+          if (!error) {
+            console.log(event);
+            $("#result").html(
+              "Error: " +
+                event.returnValues.text +
+                "<br/>Reason:" +
+                event.returnValues.reason
+            );
+          }
+        });
+      }
+
+      function timenow() {
+        var s = new Date().toLocaleTimeString("en-US");
+        console.log(s);
+        return s;
+      }
+      load();
+    </script>
+  </body>
+</html>
